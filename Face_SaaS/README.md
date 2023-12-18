@@ -9,15 +9,18 @@
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/daovietanh190499/face_rec.git
-$ cd face-rec
+$ git clone https://github.com/itvkist/VietAnhDaoCode.git
+$ git checkout Face_SaaS
+$ cd Face_SaaS
 $
 $ # Get the weight of arcface and put it on folder /app/ms1mv3_arcface_r50_fp16
 $ wget https://github.com/itvkist/VietAnhDaoCode/releases/download/v1.0.0/backbone_ir50_ms1m_epoch120.pth
-$ mv backbone_ir50_ms1m_epoch120.pth app/ms1mv3_arcface_r50_fp16
+$ mkdir app/ms1mv3_arcface_r50_fp16/
+$ mv backbone_ir50_ms1m_epoch120.pth app/ms1mv3_arcface_r50_fp16/
 $
 $ # Get the weight of ultralight weight face detection and put it on folder /app/detect_RFB_640
 $ wget https://github.com/itvkist/VietAnhDaoCode/releases/download/v1.0.0/version-RFB-640.pth
+$ mkdir app/detect_RFB_640/
 $ mv version-RFB-640.pth app/detect_RFB_640/
 $
 $ # Get the labels file of ultralight weight face detection and put it on folder /app/detect_RFB_640
