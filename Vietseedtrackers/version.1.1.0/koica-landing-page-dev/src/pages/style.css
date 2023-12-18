@@ -1,0 +1,9 @@
+.scroll-data {
+  height: calc(100vh - 88px - 140px - 128px - 32px);
+}
+.overflow-overlay {
+  overflow: overlay;
+}
+.content-inside {
+  height: calc(100vh - 88px - 160px);
+}

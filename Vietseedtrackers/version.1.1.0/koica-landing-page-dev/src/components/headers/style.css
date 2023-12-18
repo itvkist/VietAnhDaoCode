@@ -1,0 +1,17 @@
+.dropdownTrigger {
+  position: relative;
+}
+
+.dropdownTrigger:hover .dropdownContent {
+  left: 0;
+  top: 28px;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.dropdownContent a {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,22 @@
+:root {
+  --primaryColor: rgb(100, 21, 255);
+  --secondaryColor: rgb(254 237 244);
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid var(--primaryColor);
+  background-color: var(--secondaryColor);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--secondaryColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primaryColor);
+}
+
+.content-full {
+  overflow: auto;
+}
