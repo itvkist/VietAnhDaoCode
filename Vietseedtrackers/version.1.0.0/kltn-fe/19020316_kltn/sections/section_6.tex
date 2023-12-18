@@ -1,0 +1,50 @@
+% !TeX root = ../main.tex
+\documentclass[./../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Kết quả đạt được}
+Khóa luận này đã trình bày các yêu cầu cũng như quá trình phân tích, xây dựng và phát triển, cuối cùng là cách cài đặt, phát hành phần mềm theo dõi sắn. Các công nghệ chính được nghiên cứu và ứng dụng vào hệ thống đã được trình bày tại chương hai của khóa luận. Kết quả đạt được là phần mềm tương đối hoàn thiện, đưa vào hoạt động với tên KOICA. Tại thời điểm hoạt động, phần mềm đã đáp ứng các yêu cầu phân tích mà đã đặt ra từ trước đó, đảm bảo mọi chức năng đều hoạt động ổn định, hạn chế tối đa lỗi.
+% Để phát triển một phần mềm như vậy, tôi đã tuân thủ các bước cơ bản của quá trình phát triển phần mềm:
+% \begin{itemize}
+%     \item Phân tích yêu cầu của bài toán, đặc tả các ca sử dụng, xác định biểu đồ tuần tự tương ứng, và lập kế hoạch phát triển phần mềm. Tìm hiểu, lựa chọn công nghệ phù hợp.
+%     \item Thiết kế hệ thống: Thiết kế kiến trúc, cơ sở dữ liệu, và giao diện người dùng.
+%     \item Lập trình ứng dụng dựa vào những yêu cầu chức năng đã được phân tích.
+%     \item Kiểm thử lại phần mềm sau khi đã xây dựng xong.
+%     \item Triển khai và bảo trì ứng dụng.   
+% \end{itemize}
+Bằng việc tuân thủ nghiêm ngặt quá trình phát triển phần mềm, phần mềm theo dõi sắn KOICA đã đáp ứng được những yêu cầu sau: 
+\begin{itemize}
+    \item Giao diện trực quan, đơn giản, dễ dàng sử dụng, thân thiện với người dùng. Với việc sử dụng công nghệ phù hợp trong xây dựng giao diện, được xây dựng dựa trên cơ chế \acrfull{spa}  đã tối ưu được việc xử lý giao diện, tăng tốc độ tải trang, tăng trải nghiệm của người dùng.
+    \item Chức năng phân quyền đã được xây dựng tốt cho ba vai trò: Khách, người dùng, quản trị viên, các vai trò ngoài quản trị viên chỉ có quyền thực hiện được các chức năng nhất định, tăng sự bảo mật và an toàn thông tin cho phần mềm, đồng thời cũng giúp quản trị viên dễ dàng hơn trong việc quản lý phần mềm.
+    \item Tích hợp được bản đồ vào trang web, tăng sự trực quan cho người dùng khi muốn theo dõi các nơi có dịch bệnh sắn.
+    \item Xây dựng được hệ thống quản lý đề xuất, hỗ trợ việc thương mại, tạo môi trường mua bán, trao đổi trên trang web.
+    \item Cung cấp thông tin về các giống sắn, bệnh của sắn hay các nguồn cung sắn cùng với các chức năng tìm kiếm, lọc, hỗ trợ người dùng có thể dễ dàng tìm được thông tin mình muốn.
+    \item Xây dựng được chức năng chẩn đoán bệnh của sắn bằng hình ảnh, từ đó hỗ trợ người dùng dễ dàng hơn trong việc tìm ra bệnh của sắn để nhanh chóng tìm được cách xử lý thích hợp.
+    \item Phát triển được chức năng diễn đàn, tạo ra môi trường cho người dùng chia sẻ kiến thức, hỗ trợ lẫn nhau.
+    \item Phát triển chức năng tạo nhận xét để lắng nghe được các phản hồi từ người dùng, dựa vào đó để sửa chữa hay phát triển trang web tốt hơn.
+    \item Phát triển nhóm chức năng quản lý dành cho quản trị viên để quản lý người dùng, dữ liệu trên trang web tốt hơn.
+\end{itemize}
+Tuy nhiên phần mềm vẫn còn một số điểm hạn chế như: 
+\begin{itemize}
+    \item Các tài khoản đăng ký cần phải có sự phê duyệt của quản trị viên, khiến luồng đăng ký trở nên rườm rà, có thể giảm trải nghiệm của người dùng cũng như tăng khối lượng công việc cần xử lý của quản trị viên.
+    \item Diễn đàn chưa hỗ trợ bình luận tại các bài viết, khiến cho việc tương tác, chia sẻ kiến thức giữa người dùng hạn chế.
+    \item Hoạt động thương mại trên trang web vẫn chỉ đơn giản là đăng tin và người dùng sẽ tìm kiếm, tự liên hệ để thực hiện hoạt động mua bán, trao đổi.
+\end{itemize}
+
+\section{Hướng phát triển}
+Trong tương lai, phần mềm sẽ luôn được duy trì hoạt động ổn định với các chức năng hiện có, song song với đó là việc bảo trì phần mềm cũng như phát triển thêm các tính năng mới dựa trên việc lắng nghe phản hồi từ người dùng và nghiên cứu xu hướng để hỗ trợ người dùng tốt hơn, tăng thêm trải nghiệm và tiện ích. Dưới đây là một số tính năng có thể phát triển thêm ở bản cập nhật kế tiếp: 
+\begin{itemize}
+    \item Tối ưu lại luồng đăng ký tài khoản.\newline
+    Khi điền biểu mẫu đăng ký, người dùng có thể chọn xác thực bằng cách yêu cầu hệ thống gửi mã \acrshort{otp} qua thư điện tử hoặc số điện thoại đã điền bên trên. Hệ thống sẽ gửi mã và người dùng cần nhập đúng mã đã nhận trong khoảng 1 phút để xác thực tài khoản. Quản trị viên sẽ không cần phải xác minh tài khoản thủ công nữa.
+    \item Phát triển thêm tính năng bình luận tại các bài viết trên diễn đàn.\newline
+    Người dùng có thể thảo luận thêm về bài viết, đóng góp ý kiến sửa đổi những dữ liệu sai hay bổ sung thêm thông tin. 
+    \item Phát triển thêm tính năng mua bán trực tiếp trên trang web.\newline
+    Để làm được tính năng này, hệ thống cần phải liên kết với bên thứ ba, có thể là các ngân hàng hỗ trợ thanh toán trực tuyến, hoặc phần mềm hỗ trợ thanh toán bằng các loại thẻ ghi nợ quốc tế. Như vậy, phần mềm sẽ được tích hợp việc giao dịch trực tuyến trên trang mà không phải liên lạc bên ngoài hệ thống, giúp bảo mật dữ liệu người dùng, thuận tiện cho việc quản lý thương mại sắn.
+    \item Phát triển thêm tính năng trò chuyện trực tuyến.\newline
+    Người dùng sau khi đăng nhập vào hệ thống có thể vào kênh trò chuyện để nói chuyện với các người dùng khác và với quản trị viên. Ngoài việc có thể tìm hiểu thêm kiến thức liên quan tới sắn khi trao đổi với các thành viên khác trong kênh trò chuyện, người dùng còn có thể kịp thời báo cáo với quản trị viên vấn đề phát sinh trên hệ thống, từ đó giúp cho việc sửa lỗi diễn ra nhanh chóng, tránh gây ảnh hưởng trải nghiệm người dùng.
+    \item Sửa các lỗi phát sinh.\newline
+    Khi phát sinh các lỗi mới trong quá trình vận hành hệ thống, cần tiến hành kiểm tra lỗi, tìm nguyên nhân và giải pháp rồi thực hiện sửa lỗi. Cần ghi lại lý do gây lỗi để tránh mắc phải trong các bước phát triển sau này.
+\end{itemize}
+
+\end{document}

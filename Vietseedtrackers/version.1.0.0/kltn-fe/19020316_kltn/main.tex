@@ -1,0 +1,214 @@
+\documentclass[12pt]{extreport}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[utf8]{vietnam}
+\usepackage[T5]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage[
+   a4paper,
+   top=25mm,
+   bottom=30mm,
+   left=30mm,
+   right=20mm]{geometry}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{imakeidx}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{placeins}
+\usepackage[unicode, bookmarksopenlevel=4]{hyperref}
+\usepackage{makeidx}
+\usepackage[style=numeric,sorting=nyt,firstinits=true]{biblatex}
+\usepackage{multicol}
+\usepackage{subfiles} 
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{listings,xcolor}
+\usepackage[acronym]{glossaries}
+\usepackage{longtable}
+
+\usepackage{tocloft}
+\setlength{\cftchapnumwidth}{3em}
+\setlength{\cftsecindent}{0em}
+\setlength{\cftsecnumwidth}{3em}
+\setlength{\cftsubsecindent}{0em}
+\setlength{\cftsubsecnumwidth}{3em}
+\setlength{\cftsubsubsecindent}{0em}
+\setlength{\cftsubsubsecnumwidth}{3em}
+\setlength{\LTleft}{0pt}
+\let\OLDitemize\itemize
+\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{-1em}}
+\newcolumntype{R}{>{\raggedright\arraybackslash}p{0.07\linewidth}}
+% \usepackage{sectsty,lmodern}
+
+% \chapternumberfont{\fontsize{26pt}{24pt}\selectfont}
+% \chaptertitlefont{\large\selectfont}
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\MakeUppercase{{\chaptertitlename}}\ \thechapter}{5pt}{\Huge}
+
+% {\fontsize{24pt}{24pt}\bfseries}{}{5pt}{}
+
+\usetikzlibrary{calc}
+\graphicspath{ {./images/} {./../images}}
+\DeclareGraphicsExtensions{.png,.eps,.svg}
+\addbibresource{./reference.bib}
+\defbibcheck{annotevn}{\iffieldequalstr{annotation}{Vietnamese}{}{\skipentry}}
+\defbibcheck{annoteen}{\iffieldequalstr{annotation}{English}{}{\skipentry}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+\setlist[itemize,1]{label=–,leftmargin=1em,topsep=0pt}
+\setlist[itemize,2]{label=+,leftmargin=1em,topsep=0pt}
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{0.5\baselineskip}}{\temptwo}
+
+\let\orgautoref\autoref
+\def\code#1{\texttt{#1}}
+
+\makeglossaries
+\newacronym[description={International Institute of Tropical Agriculture - \textit{Viện Nông nghiệp Nhiệt đới Quốc tế}}]{iita}{IITA}{International Institute of Tropical Agriculture}
+\newacronym[description={User Interface - \textit{Giao diện người dùng}}]{ui}{UI}{User Interface}
+\newacronym[description={User Experience - \textit{Trải nghiệm người dùng}}]{ux}{UX}{User Experience}
+\newacronym[description={Document Object Model - \textit{Mô hình đối tượng tài liệu}}]{dom}{DOM}{Document Object Model}
+\newacronym[description={Javascript + XML - \textit{Javascript + Ngôn ngữ đánh dấu mở rộng}}]{jsx}{JSX}{Javascript + XML}
+\newacronym[description={Extensible Markup Language - \textit{Ngôn ngữ đánh dấu mở rộng}}]{xml}{XML}{Extensible Markup Language}
+\newacronym[description={Content Management System - \textit{Hệ thống quản lý nội dung}}]{cms}{CMS}{Content Management System}
+\newacronym[description={Application Programming Interface - \textit{Giao diện lập trình ứng dụng}}]{api}{API}{Application Programming Interface}
+\newacronym[description={Ant design - \textit{Ant design}}]{antd}{Antd}{Ant design}
+\newacronym[description={Hypertext Markup Language - \textit{Ngôn ngữ đánh dấu siêu văn bản}}]{html}{HTML}{Hypertext Markup Language}
+\newacronym[description={Cascading Style Sheets - \textit{Ngôn ngữ định dạng trang}}]{css}{CSS}{Cascading Style Sheets}
+\newacronym[description={Hypertext Transfer Protocol - \textit{Giao thức truyền tải siêu văn bản}}]{http}{HTTP}{Hypertext Transfer Protocol}
+\newacronym[description={Hypertext Transfer Protocol Secure - \textit{Giao thức truyền tải siêu văn bản an toàn}}]{https}{HTTPS}{Hypertext Transfer Protocol Secure}
+\newacronym[description={Uniform Resource Locator - \textit{Địa chỉ tài nguyên đồng nhất}}]{url}{URL}{Uniform Resource Locator}
+\newacronym[description={What You See Is What You Get - \textit{Giao diện tương tác tức thời}}]{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+\newacronym[description={Single Page Application - \textit{Ứng dụng trang đơn}}]{spa}{SPA}{Single Page Application}
+\newacronym[description={Create, Read, Update, Delete - \textit{Tạo, đọc, cập nhật, xóa}}]{crud}{CRUD}{Create, Read, Update, Delete}
+\newacronym[description={Simple Mail Transfer Protocol - \textit{Giao thức truyền tải thư điện tử đơn giản}}]{smtp}{SMTP}{Simple Mail Transfer Protocol}
+\newacronym[description={Request for Comments - \textit{Yêu cầu bình luận}}]{rfc}{RFC}{Request for Comments}
+\newacronym[description={Graphical User Interface - \textit{Giao diện đồ họa người dùng}}]{gui}{GUI}{Graphical User Interface}
+\newacronym[description={Data Transfer Object - \textit{Đối tượng truyền dữ liệu}}]{dto}{DTO}{Data Transfer Object}
+\newacronym[description={Node Package Manager - \textit{Quản lý gói Node}}]{npm}{NPM}{Node Package Manager}
+\newacronym[description={Artificial Intelligence - \textit{Trí tuệ nhân tạo}}]{ai}{AI}{Artificial intelligence}
+\newacronym[description={Google Cloud Platform - \textit{Nền tảng đám mây Google}}]{gcp}{GCP}{Google Cloud Platform}
+\newacronym[description={Virtual Machine - \textit{Máy ảo}}]{vm}{VM}{Virtual Machine}
+\newacronym[description={Viet Nam - Korea Institute of Science And Technology - \textit{Viện Khoa học và Công nghệ Hàn Quốc - Việt Nam}}]{vkist}{VKIST}{Viet Nam - Korea Institute of Science And Technology}
+\newacronym[description={Central Processing Unit - \textit{Đơn vị xử lý trung tâm}}]{cpu}{CPU}{Central Processing Unit}
+\newacronym[description={virtual Central Processing Unit - \textit{Đơn vị xử lý ảo}}]{vcpu}{vCPU}{virtual Central Processing Unit}
+\newacronym[description={Secure Shell - \textit{Giao thức truyền tải an toàn}}]{ssh}{SSH}{Secure Shell}
+\newacronym[description={Continuous Integration - \textit{Tích hợp liên tục}}]{ci}{CI}{Continuous integration}
+\newacronym[description={Internet Protocol Version 4 - \textit{Giao thức Internet phiên bản 4}}]{ipv4}{IPv4}{Internet Protocol Version 4}
+\newacronym[description={Visual Studio Code - \textit{Chương trình soạn thảo mã nguồn}}]{vsc}{VSCode}{Visual Studio Code}
+\newacronym[description={One Time Password - \textit{Mật khẩu dùng một lần}}]{otp}{OTP}{One Time Password}
+
+\title{PHẦN MỀM THEO DÕI SẮN KOICA}
+
+\pagenumbering{roman}
+
+\begin{document}
+\renewcommand*\listfigurename{Danh sách hình ảnh}
+
+\subfile{./cover.tex}
+\clearpage{}
+
+\chapter*{\centering Tóm tắt}
+\textbf{Tóm tắt}: Ngành nông nghiệp canh tác sắn đang là một trong những lĩnh vực được chú trọng và quan tâm từ lâu tại tỉnh Tây Ninh. Việc quản lý các nguồn cung cấp sắn sao cho hiệu quả, nắm bắt kịp thời thông tin liên quan đến việc trồng trọt sắn như dịch bệnh, thông tin về giống sắn có thể ảnh hưởng đáng kể đến năng suất và chất lượng của sản phẩm, ngoài ra các giao dịch liên quan tới loại thực vật này cũng góp phần đáng kể đến sự phát triển kinh tế nơi đây.\\ Nhận thấy được vấn đề trên, bằng cách áp dụng công nghệ, dự án Phần mềm theo dõi sắn KOICA đã ra đời. Đây là một sản phẩm số hóa, được thiết kế với giao diện thân thiện với người dùng để cung cấp các chức năng như tập hợp đầy đủ thông tin về các giống sắn, các bệnh trên cây sắn và cách phòng ngừa, chẩn đoán bệnh bằng hình ảnh, thương mại cho việc mua bán sắn, các bài viết cập nhật thông tin mới nhất hay chia sẻ kinh nghiệm về lĩnh vực này. Nó cũng cung cấp cho người quản trị viên các công cụ để quản lý phần mềm và cập nhật dữ liệu nhanh chóng, kịp thời. Trong quá trình tiến hành dự án, các kỹ thuật phát triển phần mềm được áp dụng, bao gồm phân tích yêu cầu, thiết kế hệ thống, lập trình, kiểm thử, triển khai và bảo trì. Điều quan trọng là phải đảm bảo tính bảo mật và dữ liệu của hệ thống để người dùng có thể sử dụng phần mềm một cách an toàn và tin cậy, không lo bị lộ thông tin. Kết quả đạt được là một phần mềm theo dõi sắn hoàn chỉnh, có thể được sử dụng để cải thiện việc theo dõi và quản lý sắn tại tỉnh Tây Ninh.\\ \\
+\textbf{\textit{Từ khóa}}: \textit{Ứng dụng web, Javascript, ReactJS, Directus.}
+
+
+\chapter*{Lời cảm ơn}
+Để có thể hoàn thành việc phát triển phần mềm và khóa luận tốt nghiệp này, tôi đã nhận được nhiều sự giúp đỡ từ mọi người xung quanh.
+
+Đầu tiên, tôi xin gửi lời cảm ơn chân thành nhất tới thầy Nguyễn Quang Minh, người đã truyền đạt những kiến thức và kinh nghiệm quý báu để giúp tôi có thể từng bước nghiên cứu đề tài, định hướng việc triển khai dự án một cách hiệu quả. Nhờ sự hướng dẫn tận tình, những góp ý, và nhận xét của thầy mà tôi có thể hoàn thành khóa luận tốt nghiệp một cách trọn vẹn nhất.
+
+Bên cạnh đó, các thầy, cô cùng Khoa Công nghệ thông tin, Trường Đại học Công Nghệ, Đại học Quốc gia Hà Nội cũng đã truyền dạy cho tôi những kiến thức quan trọng trong thời gian theo học tại trường, đó là những tri thức hữu ích, mang tính thực tiễn cần thiết cho việc thực hiện dự án này. Tôi xin bày tỏ lòng biết ơn tới các thầy, các cô trên trường.
+
+Ngoài ra, tôi xin được cảm ơn Viện Khoa học \& công nghệ Việt Nam - Hàn Quốc), đã đề xuất bài toán này, đồng thời tạo điều kiện, hỗ trợ, cũng như cung cấp dữ liệu cho tôi trong suốt quá trình phát triển phần mềm.
+
+Cuối cùng, tôi muốn gửi lời cảm ơn tới gia đình và bạn bè, những người đã bên cạnh, tiếp thêm động lực, và giúp tôi giải quyết các vấn đề gặp phải trong thời gian qua.
+
+Phần mềm theo dõi sắn KOICA và khóa luận tốt nghiệp này có thể vẫn còn những thiếu sót, vậy nên tôi rất mong nhận được góp ý, nhận xét của các thầy, các cô và mọi người để hoàn thiện hay hướng phát triển thêm cho sản phẩm, nâng cao trình độ, kỹ năng của bản thân.
+
+Tôi xin chân thành cảm ơn!
+
+\chapter*{Lời cam đoan}
+Tôi xin cam đoan rằng khóa luận "Phần mềm theo dõi sắn KOICA" không sao chép từ bất kỳ ai hay tổ chức nào khác. Qua quá trình học tập và nghiên cứu, tích lũy kinh nhiệm, tôi đã tự thực hiện khóa luận tốt nghiệp này. Mọi tài liệu tham khảo đều được trích dẫn hợp pháp. Nếu lời cam đoan là sai sự thật thì tôi xin nhận trách nhiệm và chịu hình thức kỷ luật theo quy định của nhà trường.
+
+\vspace{1cm}
+
+\hfill
+\begin{tabular}{c@{}}
+\textit{Hà Nội, ngày \; tháng \; năm 2023}
+\vspace{3cm}\\
+Sinh viên \\
+Lê Minh Hương \\
+\end{tabular}
+
+
+\clearpage{}
+
+
+\addcontentsline{toc}{chapter}{MỤC LỤC}
+\tableofcontents{}
+\clearpage{}
+
+\addcontentsline{toc}{chapter}{DANH SÁCH HÌNH ẢNH}
+\listoffigures{}
+\clearpage{}
+
+\addcontentsline{toc}{chapter}{DANH SÁCH BẢNG}
+\listoftables{}
+\clearpage{}
+
+\addcontentsline{toc}{chapter}{DANH SÁCH THUẬT NGỮ}
+\printglossary[type=\acronymtype, toctitle=bibintoc, title=DANH SÁCH THUẬT NGỮ]
+\clearpage{}
+
+% https://docs.google.com/document/d/1yqBHL8YeP5g-dPvD-kvRXwt8U7SL8dBi/edit
+% https://drive.google.com/file/d/1OaLPEG5hFNN8qG0uXtE2AQTl04FTa41W/view?usp=sharing
+% todo: https://docs.google.com/document/d/1YYIFjlvAaPsn-UBmRVBRsIK7oU6TmZZgYJTRG16rUzg/edit?usp=sharing
+
+\pagenumbering{arabic}
+\chapter{MỞ ĐẦU}
+\subfile{./sections/section_1.tex}
+
+\chapter{CƠ SỞ LÝ THUYẾT}
+\subfile{./sections/section_2.tex}
+
+\chapter{PHÂN TÍCH YÊU CẦU}
+\subfile{./sections/section_3.tex}
+
+\chapter{THIẾT KẾ HỆ THỐNG}
+\subfile{./sections/section_4.tex}
+
+\chapter{TRIỂN KHAI, CÀI ĐẶT VÀ KIỂM THỬ}
+\subfile{./sections/section_5.tex}
+
+\chapter{KẾT LUẬN}
+\subfile{./sections/section_6.tex}
+
+\nocite{*}
+
+% \printbibliography[heading=bibintoc, title=Tài liệu tham khảo]
+\chapter*{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{chapter}{TÀI LIỆU THAM KHẢO}
+\printbibliography[check=annoteen,heading=subbibliography,title={Tiếng Anh}]
+\pagebreak
+\printbibliography[check=annotevn,heading=subbibliography,title={Tiếng Việt}]
+
+
+\end{document}
+

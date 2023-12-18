@@ -1,0 +1,127 @@
+\documentclass[./../main.tex]{subfiles}
+
+\begin{document}
+\begin{itemize}
+    \item \textbf{Bước 1: Chuẩn bị, khởi tạo tài khoản và công cụ.}\\
+    Để có thể sử dụng các bộ công cụ của GCP, người dùng cần phải có tài khoản Google và thẻ Visa hoặc thẻ MasterCard để sử dụng cho việc thanh toán nếu cần. GCP hiện đang hỗ trợ người dùng mới bằng cách miễn phí 3 tháng và hơn 7 triệu VND chi phí khi sử dụng các bộ công cụ nếu tạo và xác minh tài khoản GCP thành công. Sau khi có tài khoản, tiếp tục tiến hành tạo máy ảo trong Google Compute Engine, phần VM instances ở thanh công cụ bên trái màn hình. Khi tạo mới một máy ảo, cần để ý các thông tin như khu vực, vùng cài đặt, các cài đặt về máy ảo như hệ điều hành, số CPU, bộ nhớ máy và cài đặt tường lửa. Phần mềm quản lý sắn KOICA sử dụng máy ảo chạy hệ điều hành Ubuntu 20.04, một bộ xử lý ảo (vCPU), và 3.75GB RAM, tường lửa chấp nhận cho các phương thức HTTP và HTTPS. 
+    \item \textbf{Bước 2: Lấy mã nguồn từ Github.}\\
+    Nhờ việc quản lý mã nguồn trên Github, việc lấy mã và các phiên bản phần mềm có thể dễ dàng thực hiện trên máy chủ. Hiện nay, Github khuyến khích dùng mã SSH để tạo mã và xác thực với thiết bị và tài khoản để tải mã nguồn. Sau khi cài đặt xong phần xác thực thiết bị máy ảo với Github và tài khoản tương ứng có chứa mã nguồn, tải mã phần backend và frontend lần lượt về máy ảo bằng câu lệnh sau:\\
+    \begin{verbatim}
+    git clone git@github.com:lmhuong711/kltn-be.git \
+    git clone git@github.com:lmhuong711/kltn-fe.git
+    \end{verbatim}
+    \item \textbf{Bước 3: Thực thi cài đặt frontend và backend trên máy ảo.}\\
+    Sau khi máy ảo đã chứa mã nguồn của phần mềm, thì cần tạo các tệp .env chứa các biến môi trường tương tự như .env.example cho cả backend và frontend. Kiểm tra lại các biến môi trường đã đúng chưa rồi mới cài đặt phần mềm. Thực hiện các câu lệnh sau trên dòng lệnh bên trong từng tập mã nguồn của backend và frontend. Khuyến khích thực thi trên backend trước.
+    \begin{verbatim}
+    docker-compose pull \
+    docker-compose build --no-cache \
+    docker-compose up --build -d
+    \end{verbatim}
+    Lệnh \texttt{docker-compose pull} để kéo một image được liên kết với một dịch vụ đã được chỉ định trong compose.yaml, nhưng chưa chạy containers dựa trên chúng đó. Sau đó thực thi \texttt{docker-compose build --no-cache} để xây dựng phần mềm trên máy ảo với tham số --no-cache để đảm bảo việc xây dựng từ đầu và không bị lưu cache. Cuối cùng để phần mềm luôn khả dụng thì cần đảm bảo container sẽ phải chạy ngầm bằng lệnh \texttt{docker-compose up --build -d}.\\
+    Lưu ý khi cài đặt cần đảm bảo các quyền của người dùng trong dòng lệnh, khuyến khích thực thi dưới vai trò là root. Riêng phía backend, cần chạy thêm câu lệnh sau để cho phép tải và lưu các tệp ảnh vào cơ sở dữ liệu: \texttt{docker-compose exec -u root directus chown -R node:node /directus/database /directus/extensions /directus/uploads}.
+    \item \textbf{Bước 4: Cài đặt tường lửa cho hệ thống.}\\
+    Khi phần mềm đã được chạy bằng Docker compose thành công, nếu như chưa cài đặt tường lửa lúc tạo máy ảo thì cần phải làm bước này để phần mềm được công khai sử dụng trên mạng Internet. Nếu đã cấu hình tường lửa cho tối thiểu một trong hai phương thức HTTP hoặc HTTPS thì có thể bỏ qua bước này. Nếu chưa thì cần chọn phương thức phù hợp cho tường lửa hoặc tự tạo thẻ tag cấu hình phù hợp với mục đích sử dụng và gắn với hệ thống.
+    \item \textbf{Bước 5: Kiểm tra và xác nhận cài đặt.}\\
+    Hoàn thành đủ các bước trên là công việc cài đặt phần mềm thành công. Cần vào đường dẫn tương ứng với backend và frontend để kiểm tra và xác nhận xem phần mềm đã chạy đúng như mong đợi chưa, tiến hành sửa lỗi nếu cần.
+\end{itemize}
+
+% \section{Quyền của Khách}
+% \begin{tabular}{ | c | l | c | c | c | c | }
+% \hline
+%     \textbf{STT} & \textbf{Bảng dữ liệu} & \textbf{Xem} & \textbf{Tạo} & \textbf{Sửa} & \textbf{Xóa}\\
+% \hline
+%     1 & area & o & x & x & x \\
+% \hline
+%     2 & area\_disease & o & x & x & x \\
+% \hline
+%     3 & blog & o & x & x & x \\
+% \hline
+%     4  & blog\_tag & o & x & x & x \\
+% \hline
+%     5 & cassava & o & x & x & x \\
+% \hline
+%     6 & cassava\_files & o & x & x & x \\
+% \hline
+%     7 & demand & x & x & x & x \\
+% \hline
+%     8 & diagnostics & o & o & x & x \\
+% \hline
+%     9 & diagnostics\_files & o & o & x & x \\
+% \hline
+%     10 & disease & o & x & x & x \\
+% \hline
+%     11 & disease\_files & o & x & x & x \\
+% \hline
+%     12 & feedback & x & o & x & x \\
+% \hline
+%     13 & users & o & x & x & x \\
+% \hline
+% \end{tabular}
+
+% \section{Quyền của Người dùng}
+% \begin{tabular}{ | c | l | c | c | c | c | }
+% \hline
+%     \textbf{STT} & \textbf{Bảng dữ liệu} & \textbf{Xem} & \textbf{Tạo} & \textbf{Sửa} & \textbf{Xóa}\\
+% \hline
+%     1 & area & o & x & x & x \\
+% \hline
+%     2 & area\_disease & o & x & x & x \\
+% \hline
+%     3 & blog & o & o & o & o \\
+% \hline
+%     4  & blog\_tag & o & x & x & x \\
+% \hline
+%     5 & cassava & o & x & x & x \\
+% \hline
+%     6 & cassava\_files & o & x & x & x \\
+% \hline
+%     7 & demand & o & o & o & o \\
+% \hline
+%     8 & diagnostics & o & o & x & x \\
+% \hline
+%     9 & diagnostics\_files & o & o & x & x \\
+% \hline
+%     10 & disease & o & x & x & x \\
+% \hline
+%     11 & disease\_files & o & x & x & x \\
+% \hline
+%     12 & feedback & x & o & x & x \\
+% \hline
+%     13 & users & x & x & o & x \\
+% \hline
+% \end{tabular}
+
+% \section{Quyền của Quản trị viên}
+% \begin{tabular}{ | c | l | c | c | c | c | }
+% \hline
+%     \textbf{STT} & \textbf{Bảng dữ liệu} & \textbf{Xem} & \textbf{Tạo} & \textbf{Sửa} & \textbf{Xóa}\\
+% \hline
+%     1 & area & o & o & o & o \\
+% \hline
+%     2 & area\_disease & o & o & o & o \\
+% \hline
+%     3 & blog & o & o & o & o \\
+% \hline
+%     4  & blog\_tag & o & o & o & o \\
+% \hline
+%     5 & cassava & o & o & o & o \\
+% \hline
+%     6 & cassava\_files & o & o & o & o \\
+% \hline
+%     7 & demand & o & o & o & o \\
+% \hline
+%     8 & diagnostics & o & o & o & o \\
+% \hline
+%     9 & diagnostics\_files & o & o & o & o \\
+% \hline
+%     10 & disease & o & o & o & o \\
+% \hline
+%     11 & disease\_files & o & o & o & o \\
+% \hline
+%     12 & feedback & o & o & o & o \\
+% \hline
+%     13 & users & o & o & o & o \\
+% \hline
+% \end{tabular}
+
+\end{document}
