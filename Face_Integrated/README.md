@@ -10,8 +10,8 @@
 ```bash
 $ # Get the code
 $ git clone https://github.com/itvkist/VietAnhDaoCode.git
-$ git checkout Face_SaaS
-$ cd Face_SaaS
+$ git checkout Face_Integrated
+$ cd Face_Integrated
 $
 $ # Get the weight of arcface and put it on folder app/arcface/ms1mv3_arcface_r50_fp16
 $ wget https://github.com/itvkist/VietAnhDaoCode/releases/download/v1.0.0/backbone_ir50_ms1m_epoch120.pth
