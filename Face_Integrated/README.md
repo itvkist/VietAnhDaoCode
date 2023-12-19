@@ -65,6 +65,9 @@ Within the download you'll find the following directories and files:
    |
    |-- apps/
    |    |
+   |    |-- accessories_classification/
+   |    |    |-- shuffle0_0_epoch_47.pth             # Weight of accessories classification model
+   |    |   
    |    |-- arcface/
    |    |    |-- ms1mv3_arcface_r50_fp16/       
    |    |    |    |-- backbone_ir50_ms1m_epoch120.pth      # Weight of arcface model
@@ -78,6 +81,10 @@ Within the download you'll find the following directories and files:
    |    |
    |    |
    |    __init__.py                                   # Initialize the app
+   |
+   |-- deep3d                                         # Deep3DFace project
+   |
+   |-- face_dream                                     # DREAM project
    |
    |-- static/
    |    |-- <css, JS, images>                         # CSS files, Javascripts files
