@@ -102,6 +102,12 @@ print(obj["verified"])
 
 Notice that ArcFace got 99.40% accuracy on [LFW data set](https://sefiks.com/2020/08/27/labeled-faces-in-the-wild-for-face-recognition/) whereas human beings just have 97.53% confidence.
 
+## Running on Poliface database
+
+```shell
+$ python detect_landmarks_poliface_database.py
+```
+
 ## Support
 
 There are many ways to support a project. Starring⭐️ the repo is just one 🙏
