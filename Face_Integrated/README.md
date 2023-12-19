@@ -49,7 +49,7 @@ $ # Install modules
 $ pip3 install -r requirements.txt
 $
 $ # Start the application (development mode)
-$ python3 app.py
+$ python3 main.py
 $
 $ # Create the images folder for test
 $ # the image folder has the following structure
