@@ -51,7 +51,25 @@ $
 $ # Start the application (development mode)
 $ python3 app.py
 $
-$ # Access the dashboard in browser: http://127.0.0.1:5000/
+$ # Create the images folder for test
+$ # the image folder has the following structure
+$
+$ images/
+$    - id1/
+$      + img1.jpg
+$      + img2.jpg
+$      + img3.jpg
+$      + ...
+$    - id2/
+$      + img1.jpg
+$      + ...
+$    - ...
+$    - idn/
+$      + img1.jpg
+$      + ...
+$
+$ # Test the face api
+$ python3 test_face_api.py
 ```
 
 > Note: To use the app, please access the registration page and create a new user. After authentication, the app will unlock the private pages.
