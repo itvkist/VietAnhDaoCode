@@ -27,6 +27,16 @@ $ # Get the labels file of ultralight weight face detection and put it on folder
 $ wget https://github.com/itvkist/VietAnhDaoCode/releases/download/v1.0.0/voc-model-labels.txt
 $ mv voc-model-labels.txt app/vision/detect_RFB_640/
 $
+$ # Get the BFM model and put it on folder deep3d
+$ wget https://github.com/itvkist/VietAnhDaoCode/releases/download/v1.0.0/BFM.zip
+$ mv BFM.zip deep3d/
+$ unzip BFM.zip
+$
+$ # Get the deep3d checkpoints and put it on folder deep3d
+$ wget https://github.com/itvkist/VietAnhDaoCode/releases/download/v1.0.0/checkpoints.zip
+$ mv checkpoints.zip deep3d/
+$ unzip checkpoints.zip
+$
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
 $ source env/bin/activate
@@ -41,7 +51,7 @@ $
 $ # Start the application (development mode)
 $ python3 app.py
 $
-$ # Access the dashboard in browser: http://127.0.0.1:5051/
+$ # Access the dashboard in browser: http://127.0.0.1:5000/
 ```
 
 > Note: To use the app, please access the registration page and create a new user. After authentication, the app will unlock the private pages.
@@ -55,17 +65,17 @@ Within the download you'll find the following directories and files:
    |
    |-- apps/
    |    |
-   |    |-- detect_RFB_640/                
-   |    |    |-- version-RFB-640.pth                  # Weight of face detection model
-   |    |    |-- voc-model-labels.txt                 # Labels of face detection model 
-   |    |
-   |    |-- ms1mv3_arcface_r50_fp16/       
-   |    |    |-- backbone_ir50_ms1m_epoch120.pth      # Weight of arcface model
+   |    |-- arcface/
+   |    |    |-- ms1mv3_arcface_r50_fp16/       
+   |    |    |    |-- backbone_ir50_ms1m_epoch120.pth      # Weight of arcface model
+   |    |    |-- backbone.py                               # Models code of arcface
    |    |
    |    |-- vision/
    |    |    |-- <models code>                        # Models code of face detection
+   |    |    |-- detect_RFB_640/                
+   |    |    |-- version-RFB-640.pth                  # Weight of face detection model
+   |    |    |-- voc-model-labels.txt                 # Labels of face detection model 
    |    |
-   |    |-- backbone.py                               # Models code of arcface
    |    |
    |    __init__.py                                   # Initialize the app
    |
