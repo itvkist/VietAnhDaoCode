@@ -104,15 +104,10 @@ Within the download you'll find the following directories and files:
    |
    |-- face_dream                                     # DREAM project
    |
-   |-- static/
-   |    |-- <css, JS, images>                         # CSS files, Javascripts files
-   |
-   |-- templates/                   
-   |    |-- index.html                                # main HTML chunks and components
-   |
    |-- requirements.txt                               # Development modules
-   |-- create_app.py                                  # Create Database, Configure the app
-   |-- app.py                                         # Start the app - WSGI gateway - SocketIO gateway
+   |-- main.py                                        # Start the app - WSGI gateway - SocketIO gateway
+   |-- main_3d_dream                                  # main with integrated 3D and DREAM technology
+   |-- test_face_api.py                               # test file
    |
    |-- ************************************************************************
 ```
