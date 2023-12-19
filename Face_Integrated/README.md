@@ -1,4 +1,4 @@
-# [Face Recognition VKIST](http://123.16.55.212:85/) 
+# [Face Recognition Integrated VKIST](https://github.com/itvkist/VietAnhDaoCode/edit/Face_Integrated/Face_Integrated/README.md) 
 
  [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/daovietanh99)
  ![version](https://img.shields.io/badge/version-1.0.1-blue.svg) 
